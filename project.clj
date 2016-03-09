@@ -7,10 +7,12 @@
   :dependencies [[org.clojure/clojure "1.8.0-RC5"]
                  [org.clojure/clojurescript "1.7.228" :scope "provided"]
                  [ring "1.4.0"]
+                 [compojure "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
                  [bk/ring-gzip "0.1.1"]
                  [ring.middleware.logger "0.5.0"]
                  [compojure "1.4.0"]
+                 [reagent "0.5.1"]
                  [org.omcljs/om "1.0.0-alpha28"]
                  [environ "1.0.2"]]
 

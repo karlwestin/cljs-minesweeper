@@ -1,18 +1,16 @@
 (ns cljs-minesweeper.core
-  (:require [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]))
+  (:require [reagent.core :as reagent]))
 
 (enable-console-print!)
 
 (defonce app-state (atom {:text "Hello Chestnut!"}))
 
-(defn root-component [app owner]
-  (reify
-    om/IRender
-    (render [_]
-      (dom/div nil (dom/h1 nil (:text app))))))
+(defn menu []
+  [:ul
+   [:li "the real list here"]
+   [:li "another item here"]
+   ])
 
-(om/root
- root-component
- app-state
- {:target (. js/document (getElementById "app"))})
+(reagent/render [:div [menu]] (.getElementById js/document "app"))
+
+

@@ -1,3 +1,20 @@
 h1 {
   text-decoration: underline;
 }
+
+.horizontal-flex {
+   display: flex;
+   flex-direction: row;
+}
+
+.vertical-flex {
+   display: flex;
+   flex-direction: column;
+}
+
+.mine {
+  width: 2em;
+  height: 2em;
+  background-color: #ddd;
+  border: 1px solid #999;
+}

@@ -11,9 +11,11 @@
                  [ring/ring-defaults "0.1.5"]
                  [bk/ring-gzip "0.1.1"]
                  [ring.middleware.logger "0.5.0"]
+                 [cljsjs/react-with-addons "0.13.3-0"]
+                 [reagent "0.5.1" :exclusions [cljsjs/react]]
                  [compojure "1.4.0"]
-                 [reagent "0.5.1"]
-                 [org.omcljs/om "1.0.0-alpha28"]
+                 ;; to help testing, a dom lib!
+                 [prismatic/dommy "1.1.0"]
                  [environ "1.0.2"]]
 
   :plugins [[lein-cljsbuild "1.1.1"]

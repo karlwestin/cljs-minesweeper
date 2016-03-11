@@ -97,10 +97,13 @@
     (is (= clicked1 clicked3) "returns the same board if clicking already clicked element")))
 
 (deftest mark-squares
-  (let [marked (game/mark testboard 0 0)]
+  (let [marked (game/mark testboard 0 0)
+        unmarked (game/mark marked 0 0)
+        ]
     (is (-> marked :squares (nth 0) :marked) "marks a square as marked")
     (is (= -1 (-> marked :squares (nth 0) :number))  "marks a square as marked")
-    (is (= marked (game/click marked 0 0)) "doesnt click marked squares")))
+    (is (= marked (game/click marked 0 0)) "doesnt click marked squares")
+    (is (-> unmarked :squares (nth 0) :marked not) "unmarks a square that was marked")))
 
 (deftest lost
   (let [lostboard (game/click testboard 3 3)]

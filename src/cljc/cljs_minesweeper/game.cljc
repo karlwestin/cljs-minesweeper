@@ -101,7 +101,7 @@
       (assoc board :squares (mark-squares squares index width height)))))
 
 (defn mark-marked [square]
-  (assoc square :marked true))
+  (assoc square :marked (not (:marked square))))
 
 (defn mark
   "lets the user mark a square as suspected mine, stops from clicking on it"

@@ -23,7 +23,7 @@
 
   :min-lein-version "2.5.3"
 
-  :source-paths ["src/clj" "src/cljs" "dev"]
+  :source-paths ["src/clj" "src/cljs" "src/cljc" "dev"]
 
   :test-paths ["test/clj"]
 
@@ -41,7 +41,7 @@
 
   :cljsbuild {:builds
               {:app
-               {:source-paths ["src/cljs"]
+               {:source-paths ["src/cljs" "src/cljc"]
 
                 :figwheel true
                 ;; Alternatively, you can configure a function to run every time figwheel reloads.
@@ -100,7 +100,7 @@
 
               :cljsbuild {:builds
                           {:test
-                           {:source-paths ["src/cljs" "test/cljs"]
+                           {:source-paths ["src/cljs" "src/cljc" "test/cljs"]
                             :compiler
                             {:output-to "resources/public/js/compiled/testable.js"
                              :main cljs-minesweeper.test-runner
@@ -113,7 +113,7 @@
               :aot :all
               :cljsbuild {:builds
                           {:app
-                           {:source-paths ^:replace ["src/cljs"]
+                           {:source-paths ^:replace ["src/cljs" "src/cljc"]
                             :compiler
                             {:optimizations :advanced
                              :pretty-print false}}}}}})

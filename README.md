@@ -17,16 +17,16 @@ This serves the application on [localhost:5555](http://localhost:5555)
 The source consists of 3 parts, `src/clj, src/cljc, and src/cljs`. Cljc is a way to write clojure
 so it can be included from both your clojure and your clojurescript code.
 
-* `src/cljc/cljs_minesweeper/game.cljc`
+* `src/cljc/cljs_minesweeper/game.cljc`  
   This is the core game logic. It's written in cljc so it could be used for [server rendering](https://github.com/karlwestin/reagent-server-rendering) if we'd want to.
 
-* `src/cljs/cljs_minesweeper/components.cljs`
+* `src/cljs/cljs_minesweeper/components.cljs`  
   Reagent components for rendering a game board
 
-* `src/cljs/cljs_minesweeper/game.cljs`
+* `src/cljs/cljs_minesweeper/core.cljs`  
   Component for the game ui. Defines the actions (click, mark) to pass into the board component. Defines the main game state holder - A clojure atom. This has the same function as a redux store in this case.
 
-* `src/clj/cljs_minesweeper/server.clj`
+* `src/clj/cljs_minesweeper/server.clj`  
   A standard ring server handler. This comes from the [chestnut application template](http://plexus.github.io/chestnut/).
 
 ### Running tests

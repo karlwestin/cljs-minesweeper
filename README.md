@@ -2,7 +2,7 @@
 
 Minesweeper written in ClojureScript using [reagent](http://reagent-project.github.io/) which uses [React](https://facebook.github.io/react/) in the background.
 
-[http://karlwestin.github.io/cljs-minesweeper/](http://karlwestin.github.io/cljs-minesweeper/)
+**Play the game here: [http://karlwestin.github.io/cljs-minesweeper/](http://karlwestin.github.io/cljs-minesweeper/)**
 
 ## Run Application
 

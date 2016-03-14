@@ -77,8 +77,20 @@
 (deftest render-number
   (test-mine
     {:number 1 :show true}
-    #"mine-show"
+    #"mine-show mine-number-1"
     "1"))
+
+(deftest render-number-2
+  (test-mine
+    {:number 2 :show true}
+    #"mine-show mine-number-2"
+    "2"))
+
+(deftest render-zero
+  (test-mine
+    {:number 0 :show true}
+    #"mine-show"
+    ""))
 
 (deftest render-number-marked
   (test-mine
@@ -90,7 +102,7 @@
   (test-mine
     {:number 1 :show false :marked true}
     #"mine-marked"
-    "☮"))
+    "$"))
 
 (deftest click-mine
   (let [{:keys [called? spy]} (helpers/spy)]

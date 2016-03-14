@@ -1,4 +1,45 @@
-# cljs-minesweeper
+# ClojureScript Minesweeper
+
+Minesweeper written in ClojureScript using [reagent](http://reagent-project.github.io/) which uses [React](https://facebook.github.io/react/) in the background.
+
+[http://karlwestin.github.io/cljs-minesweeper/](http://karlwestin.github.io/cljs-minesweeper/)
+
+## Run Application
+
+```
+lein cljsbuild once app
+lein run
+```
+This serves the application on [localhost:5555](http://localhost:5555)
+
+## Reading the Source
+
+The source consists of 3 parts, `src/clj, src/cljc, and src/cljs`. Cljc is a way to write clojure
+so it can be included from both your clojure and your clojurescript code.
+
+* `src/cljc/cljs_minesweeper/game.cljc`
+  This is the core game logic. It's written in cljc so it could be used for [server rendering](https://github.com/karlwestin/reagent-server-rendering) if we'd want to.
+
+* `src/cljs/cljs_minesweeper/components.cljs`
+  Reagent components for rendering a game board
+
+* `src/cljs/cljs_minesweeper/game.cljs`
+  Component for the game ui. Defines the actions (click, mark) to pass into the board component. Defines the main game state holder - A clojure atom. This has the same function as a redux store in this case.
+
+* `src/clj/cljs_minesweeper/server.clj`
+  A standard ring server handler. This comes from the [chestnut application template](http://plexus.github.io/chestnut/).
+
+### Running tests
+
+ClojureScript tests are ran with
+```
+lein doo phantom test
+```
+
+Clojure tests are ran with
+```
+lein test
+```
 
 
 ## Development
@@ -30,38 +71,11 @@ launch Figwheel directly from the REPL**
 
 ## Trying it out
 
-If all is well you now have a browser window saying 'Hello Chestnut',
+If all is well you now have a browser window with a minesweeper game
 and a REPL prompt that looks like `cljs.user=>`.
 
 Open `resources/public/css/style.css` and change some styling of the
 H1 element. Notice how it's updated instantly in the browser.
-
-Open `src/cljs/cljs-minesweeper/core.cljs`, and change `dom/h1` to
-`dom/h2`. As soon as you save the file, your browser is updated.
-
-In the REPL, type
-
-```
-(ns cljs-minesweeper.core)
-(swap! app-state assoc :text "Interactivity FTW")
-```
-
-Notice again how the browser updates.
-
-### Lighttable
-
-Lighttable provides a tighter integration for live coding with an inline
-browser-tab. Rather than evaluating cljs on the command line with weasel repl,
-evaluate code and preview pages inside Lighttable.
-
-Steps: After running `(run)`, open a browser tab in Lighttable. Open a cljs file
-from within a project, go to the end of an s-expression and hit Cmd-ENT.
-Lighttable will ask you which client to connect. Click 'Connect a client' and
-select 'Browser'. Browse to [http://localhost:3449](http://localhost:3449)
-
-View LT's console to see a Chrome js console.
-
-Hereafter, you can save a file and see changes or evaluate cljs code (without saving a file). Note that running a weasel server is not required to evaluate code in Lighttable.
 
 ### Emacs/Cider
 
@@ -71,49 +85,6 @@ Switch to repl-buffer with `C-c C-z` and start web and figwheel servers with
 `(run)`, and weasel server with `(browser-repl`). Load
 [http://localhost:3449](http://localhost:3449) on an external browser, which
 connects to weasel, and start evaluating cljs inside Cider.
-
-To run the Clojurescript tests, do
-
-```
-lein doo phantom
-```
-
-## Deploying to Heroku
-
-This assumes you have a
-[Heroku account](https://signup.heroku.com/dc), have installed the
-[Heroku toolbelt](https://toolbelt.heroku.com/), and have done a
-`heroku login` before.
-
-``` sh
-git init
-git add -A
-git commit
-heroku create
-git push heroku master:master
-heroku open
-```
-
-## Running with Foreman
-
-Heroku uses [Foreman](http://ddollar.github.io/foreman/) to run your
-app, which uses the `Procfile` in your repository to figure out which
-server command to run. Heroku also compiles and runs your code with a
-Leiningen "production" profile, instead of "dev". To locally simulate
-what Heroku does you can do:
-
-``` sh
-lein with-profile -dev,+production uberjar && foreman start
-```
-
-Now your app is running at
-[http://localhost:5000](http://localhost:5000) in production mode.
-## License
-
-Copyright © 2016 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
 
 ## Chestnut
 

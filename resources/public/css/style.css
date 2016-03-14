@@ -16,21 +16,47 @@ h1 {
   width: 40px;
   height: 40px;
   background-color: #ddd;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   font-weight: bold;
   text-align: center;
   font-family: Arial;
   font-size: 25px;
+  line-height: 1.6;
+}
+
+.mine:hover {
+  background-color: #eee;
 }
 
 .mine-show {
+  background-color: #eaeaea;
 }
 
 .mine-mine {
+ color: #ff0;
  background-color: #f00;
+ border: 1px solid #f00;
+}
+
+.mine-mine:hover {
+ background-color: #b00;
 }
 
 .mine-marked {
  background-color: #00f;
+ border: 1px solid #00f;
  color: #fff;
 }
+
+.mine-marked:hover {
+ background-color: #009;
+}
+
+.mine-number-1 { color: #00f; }
+.mine-number-2 { color: #090; }
+.mine-number-3 { color: #f00; }
+.mine-number-4 { color: #007; }
+.mine-number-5 { color: #800; }
+.mine-number-6 { color: #0aa; }
+.mine-number-7 { color: #000; }
+.mine-number-8 { color: #666; }

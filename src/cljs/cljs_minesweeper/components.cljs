@@ -3,8 +3,9 @@
 (defn mine [row col {:keys [number show marked] :as square} click right-click]
   (let [[mine-class content] (cond
                     (and show (= -1 number)) ["mine-mine"  "☭"]
-                    show ["mine-show" number]
-                    (and (not show) marked) ["mine-marked" "☮"]
+                    (and show (< 0 number)) [(str "mine-show " "mine-number-" number) number]
+                    show ["mine-show" ""]
+                    (and (not show) marked) ["mine-marked" "$"]
                     :else ["mine-blank" ""])]
    [:div
      {:data-qa "board-square"
